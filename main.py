@@ -14,6 +14,7 @@ class mainApp(Tk):
         self.resizable(0,0)
         
         self.temperatura = StringVar(value="")
+        self.temperatura.trace("w", self.validateTemperature)
         self.tipoUnidad = StringVar(value="C")
         
         self.createLayout()
@@ -27,6 +28,11 @@ class mainApp(Tk):
         
     def start(self):
         self.mainloop()
+        
+    
+    def validateTemperature(self, *args):
+        print(self.temperatura.get())
+        
         
 if __name__ == "__main__":
     app = mainApp()
